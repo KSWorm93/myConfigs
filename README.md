@@ -32,6 +32,15 @@ of the note to take
 **execute**: bash notebook.sh
 <br>open help with the "-h" argument
 
+#### budget
+Make a budget using this script
+it adds a line to a csv file and calculates the amount
+
+this is an examble showing 1 entry in it:<br>
+Title,Amount,DayToPay,Company,Other<br>
+Phone,120,1,Yousee,12345678<br>
+TOTAL,120,TOTAL,TOTAL,TOTAL<br>
+
 #### radio
 Different radio stations to tune into
 Takes radio station name as argument or defaults to nova
