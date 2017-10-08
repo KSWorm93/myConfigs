@@ -41,6 +41,8 @@ Title,Amount,DayToPay,Company,Other<br>
 Phone,120,1,Yousee,12345678<br>
 TOTAL,120,TOTAL,TOTAL,TOTAL<br>
 
+**execute**: bash budget.sh
+
 #### radio
 Different radio stations to tune into
 Takes radio station name as argument or defaults to nova
