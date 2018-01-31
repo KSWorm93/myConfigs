@@ -67,5 +67,5 @@ echo
 total=`awk -F"," '{s+=$2}END{print s}' $base`
 echo "Total budget as it is now: $total DKK"
 
-# always make new line in diary
+# Print total at bottom of file
 echo "TOTAL,$total,TOTAL,TOTAL,TOTAL" >> $base
