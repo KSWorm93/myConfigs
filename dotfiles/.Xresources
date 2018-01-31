@@ -1,0 +1,50 @@
+Xterm*selectToClipBoard: true
+XTerm*vt100.translations: #override \n\
+	Shift Ctrl <Key> v: insert-selection(CLIPBOARD) \n\
+	Shift Ctrl <Key> c: copy-selection(CLIPBOARD)
+
+Xterm*renderFont: true
+XTerm.vt100.faceName: Liberation Mono:size=10:antialias=false
+XTerm.vt100.font: 7x13
+
+! special
+*.foreground:   #d0d0d0
+*.background:   #383c4a
+*.cursorColor:  #d0d0d0
+
+! black
+*.color0:       #151515
+*.color8:       #726f6f
+
+! red
+*.color1:       #da6629
+*.color9:       #da6629
+
+! green
+*.color2:       #d9981f
+*.color10:      #d9981f
+
+! yellow
+*.color3:       #d0d0d0
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #b87219
+*.color12:      #b87219
+
+! magenta
+*.color5:       #cf8218
+*.color13:      #cf8218
+
+! cyan
+*.color6:       #cf8e0a
+*.color14:      #cf8e0a
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #fce8d0
+
+
+
+
+
