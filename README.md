@@ -1,3 +1,1 @@
-This is my folder
-for keeping linux related stuff
-Such as my custom scripts and configs
+This is some of my config files
