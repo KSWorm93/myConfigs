@@ -1,7 +1,5 @@
 This is my folder
-for keeping linux related stuff
-Such as my custom scripts and configs
-
+for keeping config related stuff
 
 #### New Ubuntu Setup
 If you want to setup Ubuntu to match my own.
