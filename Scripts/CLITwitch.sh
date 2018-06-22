@@ -3,14 +3,13 @@
 #
 # Twitch
 # Streaming
-# From CLI
+# CLI
 #
 #################
 
-# Get arguments and store them
+# Get arguments
 clientId=$1
 arg2=$2
-listtouse=$3
 
 # Help guide
 if [ "$1" == "-h" ] || [ "$1" == "--help" ] || 
@@ -23,6 +22,7 @@ if [ "$1" == "-h" ] || [ "$1" == "--help" ] ||
   echo "Usage:"
   echo "bash CLITwitch.sh <client_id> arg2 arg3"
   echo
+  echo "arg1 should ALWAYS be client_id"
   echo "arg2 should be either -s / --status OR a streamer name"
   echo "arg3 will only be used in --status check"
   echo "and will check specific list, defaults to use all if its not set"
@@ -36,8 +36,16 @@ if [ "$1" == "-h" ] || [ "$1" == "--help" ] ||
   exit 0
 fi
 
+function getStreamerStatusId {
+  echo `curl -s -H "Client-ID: $clientId" https://api.twitch.tv/kraken/streams/$streamToWatch | jq -r '.stream._id'`
+}
+
+function getStreamerGame {
+  echo `curl -ss -H "Client-ID: $clientId" https://api.twitch.tv/kraken/streams/$streamToWatch | jq -r '.stream.game'`
+}
+
 # All streamers
-all=(
+declare -a all=(
 	"t90official"
 	"membtv"
 	"tyrant_theviper"
@@ -54,11 +62,11 @@ all=(
 	"iamyaws"
 	"kayotica"
 	"yayitskate"
-  	"anniebot"
-  	"choxie808"
-  	"mightyteapot"
-  	"sizer2654"
-  	"timthetatman"
+  "anniebot"
+  "choxie808"
+  "mightyteapot"
+  "sizer2654"
+  "timthetatman"
 )
 # individual game streamers
 declare -a aoe=('t90official' 'membtv' 'tyrant_theviper' 'zeroempires');
@@ -87,14 +95,18 @@ case ${3:-all} in
 esac
 
 # Check status of streamers
-check_status () {
+function checkStatus {
   echo "checking online status of streamers"
   echo
   for streamer in $streamerList
     do
- 	    stream_id=`curl -s -H "Client-ID: $clientId" https://api.twitch.tv/kraken/streams/$streamer | jq -r '.stream._id'`
- 	    game=`curl -ss -H "Client-ID: $clientId" https://api.twitch.tv/kraken/streams/$streamer | jq -r '.stream.game'`
- 	    if [ "$stream_id" != "null" ]; 
+ 	    streamToWatch=$streamer
+      
+      # Set variables to fetched data
+      streamStatusId=$(getStreamerStatusId)
+ 	    game=$(getStreamerGame)
+
+ 	    if [ "$streamStatusId" != "null" ]; 
  	      then
    	      echo "$streamer is online playing $game"
         else
@@ -106,16 +118,16 @@ check_status () {
 }
 
 # Play streamer gotten from $2
-play_streamer () {
+function playStream {
 	mpv https://www.twitch.tv/$arg2
 }
 
 # Check $2 for --status 
 if [ $arg2 == '-s' ] || [ $arg2 == '--status' ];
   then
-    check_status
+    checkStatus
   else
-    play_streamer
+    playStream
 fi
 
 # List of curl commands used
