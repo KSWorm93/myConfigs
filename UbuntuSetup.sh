@@ -13,6 +13,7 @@ echo "Please confirm you want to proceed"
 function copyConfigs {
     echo
     echo "Copying config files to their respective places"
+    mkdir ~/.config/
     mkdir ~/.config/polybar
     mkdir ~/.config/dunst
     
@@ -63,7 +64,10 @@ function coreInstall {
     echo "Installing core programs"
     sudo apt update
     # Installing core programs
-    sudo apt install xorg xterm ufw thunar mpv qbittorrent compton redshift volumeicon-alsa wicd pulseaudio xfce4-power-manager build-essential polybar dunst
+
+    # xinit
+    # some other stuff preventing me from running startx after install
+    sudo apt install xorg xserver-xorg xterm ufw thunar mpv qbittorrent compton redshift volumeicon-alsa wicd pulseaudio xfce4-power-manager build-essential polybar dunst
 }
 
 function devInstall {

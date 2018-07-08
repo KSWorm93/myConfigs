@@ -7,6 +7,6 @@ to check name for monitor
 this command if autorandr not working
 change HDMI-1 / eDP-1 as needed to screen names
 and 1920x1080 if its not supported.
-xrandr --auto --output HDMI-1 --mode 1920x1080 --transform 1.0,0,0,0,1,0,0,0,1 --same-as eDP-
+xrandr --auto --output HDMI-1 --mode 1920x1080 --transform 1.0,0,0,0,1,0,0,0,1 --same-as eDP-1
 
 If sound is needed, dont forget to change output channel in sound mixer
