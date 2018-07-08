@@ -60,6 +60,24 @@ function i3Install {
     cp ~/myConfigs/Linux/dotfiles/i3/* ~/.config/i3/
 }
 
+function installPolybar {
+    echo
+    echo "Installing polybar dependencies"
+    sudo apt install cairo libxcb python2 xcb-proto xcb-util-image xcb-util-wm cmake cmake-data pkg-config xcb-util-cursor
+
+    echo
+    echo "Installing polybar"
+    mkdir ~/.local
+    mkdir ~/.local/share
+    cd .local/share
+    git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
+    mkdir polybar/build
+    cd polybar/build
+    cmake ..
+    sudo make install
+
+}
+
 function coreInstall {
     echo "Installing core programs"
     sudo apt update
@@ -67,7 +85,7 @@ function coreInstall {
 
     # xinit
     # some other stuff preventing me from running startx after install
-    sudo apt install xorg xserver-xorg xterm ufw thunar mpv qbittorrent compton redshift volumeicon-alsa wicd pulseaudio xfce4-power-manager build-essential polybar dunst
+    sudo apt install xorg xserver-xorg xterm ufw thunar mpv qbittorrent compton redshift volumeicon-alsa wicd pulseaudio xfce4-power-manager build-essential dunst
 }
 
 function devInstall {
@@ -76,6 +94,7 @@ function devInstall {
 
 # Installing programs
 coreInstall
+installPolybar
 # Copy configs
 copyConfigs
 
