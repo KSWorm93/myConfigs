@@ -63,7 +63,7 @@ function i3Install {
 function installPolybar {
     echo
     echo "Installing polybar dependencies"
-    sudo apt install cairo libxcb python2 xcb-proto xcb-util-image xcb-util-wm cmake cmake-data pkg-config xcb-util-cursor
+    sudo apt install libcairo2-dev libxcb1-dev libxcb-randr0-dev libxcb-util0-dev python-xcbgen xcb-proto cmake cmake-data pkg-config libcxb-image0-dev xcb-util-cursor libxcb-ewmh-dev libxcb-icccm4-dev
 
     echo
     echo "Installing polybar"
