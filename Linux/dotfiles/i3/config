@@ -175,11 +175,11 @@ exec --no-startup-id hsetroot -solid "#383C4A"
 
 # start-up applications
 #exec --no-startup-id nitrogen --restore #wallpaper
-exec --no-startup-id compton -b
-exec --no-startup-id wicd-client -t
-exec --no-startup-id albert
-exec --no-startup-id pulseaudio
-exec --no-startup-id redshift
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id thunar --daemon
-exec --no-startup-id "sleep 1; volumeicon"
+# exec --no-startup-id compton -b
+# exec --no-startup-id wicd-client -t
+# exec --no-startup-id albert
+# exec --no-startup-id pulseaudio
+# exec --no-startup-id redshift
+# exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id thunar --daemon
+# exec --no-startup-id "sleep 1; volumeicon"

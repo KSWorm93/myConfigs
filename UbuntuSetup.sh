@@ -42,7 +42,7 @@ function i3Install {
     echo "Installing i3-Gaps"
     mkdir ~/.local
     mkdir ~/.local/share
-    cd .local/share
+    cd ~/.local/share
     git clone https://www.github.com/Airblader/i3 i3-gaps
     cd i3-gaps
 
@@ -58,6 +58,8 @@ function i3Install {
     echo "Moving i3 config file"
     mkdir ~/.config/i3
     cp ~/myConfigs/Linux/dotfiles/i3/* ~/.config/i3/
+
+    cd ~/
 }
 
 function installPolybar {
@@ -69,13 +71,14 @@ function installPolybar {
     echo "Installing polybar"
     mkdir ~/.local
     mkdir ~/.local/share
-    cd .local/share
+    cd ~/.local/share
     git clone --branch 3.1.0 --recursive https://github.com/jaagr/polybar
     mkdir polybar/build
     cd polybar/build
     cmake ..
     sudo make install
 
+    cd ~/
 }
 
 function coreInstall {
